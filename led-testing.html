@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LED ring testing</title>
+        <link rel="stylesheet" type="text/css" href="leds.css" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="rings.js"></script>
+        <script src="pattern-spin.js"></script>
+        <script src="pattern-figure8.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                window.Rings.logic = new Pattern.ChasingLeds().logic;
+                //window.Rings.logic = new Pattern.Spin().logic;
+            });
+        </script>
+    </head>
+    <body>
+        <h1>LED testing</h1>
+        <div id="r1" class="ring">
+            <div class="led l1"></div>
+            <div class="led l2"></div>
+            <div class="led l3 on"></div>
+            <div class="led l4 on"></div>
+            <div class="led l5"></div>
+            <div class="led l6"></div>
+            <div class="led l7"></div>
+            <div class="led l8"></div>
+            <div class="led l9"></div>
+            <div class="led l10"></div>
+            <div class="led l11"></div>
+            <div class="led l12"></div>
+            <div class="led l13"></div>
+            <div class="led l14"></div>
+            <div class="led l15"></div>
+            <div class="led l16"></div>
+        </div>
+        <div id="r2" class="ring">
+            <div class="led l1"></div>
+            <div class="led l2"></div>
+            <div class="led l3"></div>
+            <div class="led l4"></div>
+            <div class="led l5"></div>
+            <div class="led l6"></div>
+            <div class="led l7"></div>
+            <div class="led l8"></div>
+            <div class="led l9"></div>
+            <div class="led l10"></div>
+            <div class="led l11"></div>
+            <div class="led l12"></div>
+            <div class="led l13"></div>
+            <div class="led l14"></div>
+            <div class="led l15"></div>
+            <div class="led l16"></div>
+        </div>
+        <div id="r3" class="ring">
+            <div class="led l1"></div>
+            <div class="led l2"></div>
+            <div class="led l3"></div>
+            <div class="led l4"></div>
+            <div class="led l5"></div>
+            <div class="led l6"></div>
+            <div class="led l7"></div>
+            <div class="led l8"></div>
+            <div class="led l9"></div>
+            <div class="led l10"></div>
+            <div class="led l11"></div>
+            <div class="led l12"></div>
+            <div class="led l13"></div>
+            <div class="led l14"></div>
+            <div class="led l15"></div>
+            <div class="led l16"></div>
+        </div>
+        <div id="r4" class="ring">
+            <div class="led l1"></div>
+            <div class="led l2"></div>
+            <div class="led l3"></div>
+            <div class="led l4"></div>
+            <div class="led l5"></div>
+            <div class="led l6"></div>
+            <div class="led l7"></div>
+            <div class="led l8"></div>
+            <div class="led l9"></div>
+            <div class="led l10"></div>
+            <div class="led l11"></div>
+            <div class="led l12"></div>
+            <div class="led l13"></div>
+            <div class="led l14"></div>
+            <div class="led l15"></div>
+            <div class="led l16"></div>
+        </div>
+    </body>
+</html>
