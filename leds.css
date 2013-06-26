@@ -3,6 +3,11 @@ body
     background: #333;
 }
 
+h1
+{
+    color: white;
+}
+
 .led 
 {
     width: 20px;
@@ -34,7 +39,7 @@ body
 
 #r1
 {
-    top: 100px;
+    top: 50px;
     left: 200px;
 }
 
@@ -46,14 +51,14 @@ body
 
 #r3
 {
-    top: 442px;
-    left: 58px;
+    top: 490px;
+    left: 28px;
 }
 
 #r4
 {
-    top: 442px;
-    left: 342px;
+    top: 490px;
+    left: 372px;
 }
 
 #r1 .led
@@ -75,3 +80,4 @@ body
 {
     background: #33f;
 }
+

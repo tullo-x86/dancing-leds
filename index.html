@@ -9,7 +9,15 @@
         <script src="pattern-figure8.js"></script>
         <script type="text/javascript">
             $(function() {
-                window.Rings.logic = new Pattern.ChasingLeds().logic;
+                        
+                var chasers = [
+                    new Pattern.ChasingLeds.Chaser(0, 0,true),
+                    new Pattern.ChasingLeds.Chaser(2,10,true),
+                    new Pattern.ChasingLeds.Chaser(3, 6,true)
+                ];
+        
+                DancingLeds.setPattern(new Pattern.ChasingLeds(chasers));
+                //window.Rings.logic = new Pattern.ChasingLeds().logic;
                 //window.Rings.logic = new Pattern.Spin().logic;
             });
         </script>

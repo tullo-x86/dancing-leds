@@ -12,7 +12,7 @@ $(function() {
         ];
         
     rings.setLed = function(ring, led, value) {
-        this[ring][led] = value;
+        this[ring][led] = !!value;
     };
     
     rings.setLedAllRings = function(led, value) {
@@ -32,9 +32,29 @@ $(function() {
         }
     };
     
+    var currentPattern = { initialize: function () { }, logic: function () { } };
+    
+    var interval = null;
+    
+    var DancingLeds = {
+        setPattern: function(pattern) {
+            currentPattern = pattern;
+            currentPattern.initialize(rings);
+        },
+        
+        start: function(msec) {
+            if(interval) this.stop();
+            interval = setInterval(tick, msec);
+        },
+        
+        stop: function() {
+            clearInterval(interval);
+            interval = null;
+        }
+    };
+    
     window.Rings = {};
     window.Rings.logic = function(rings) {};
-    //window.Rings.setPattern({initialize: function () { }, logic: function () { }});
     
     createCircles();
     
@@ -47,7 +67,7 @@ $(function() {
         {
             $('.l' + (i+1)).css(
                 {
-                    transform: 'rotate(' + (i*22.5) + 'deg)'
+                    transform: 'rotate(' + (12.25 + (i*22.5)) + 'deg)'
                 }
             )
             .text(i);
@@ -74,10 +94,11 @@ $(function() {
     }
     
     function tick() {
-        window.Rings.logic(rings);
+        currentPattern.logic(rings);
         updateView(rings);
     }
     
+    window.DancingLeds = DancingLeds;
 });
 
 

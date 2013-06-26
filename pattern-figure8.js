@@ -10,28 +10,22 @@ $(function() {
         this.isClockwise = clockwise;
     };
     
-    Pattern.ChasingLeds = function() {
-        var states = [{
-            position: {
-                ring: 0,
-                led: 0
-            },
-            direction: true
+    Pattern.ChasingLeds = function(chasers) {
+        var states = chasers;/*[{
+            ring: 0,
+            led: 0,
+            isClockwise: true
         },
         {
-            position: {
-                ring: 2,
-                led: 10
-            },
-            direction: true
+            ring: 2,
+            led: 10,
+            isClockwise: true
         },
         {
-            position: {
-                ring: 3,
-                led: 6
-            },
-            direction: true
-        }];
+            ring: 3,
+            led: 6,
+            isClockwise: true
+        }];*/
         
         // For V1, assume we're always changing directions
         var junctions = [
@@ -50,7 +44,7 @@ $(function() {
         
         var logic = function(rings) {
             states.forEach(function (s) {
-                rings.setLed(s.position.ring, s.position.led, false);                
+                rings.setLed(s.ring, s.led, false);                
             });
                 
             for (var s = 0; s < states.length; s++) {
@@ -58,30 +52,30 @@ $(function() {
                 
                 // follow junction, reversing if necessary
                 for (var i = 0; i < junctions.length; i++) {
-                    if (junctions[i].from.ring == state.position.ring
-                        && junctions[i].from.led == state.position.led) {
+                    if (junctions[i].from.ring == state.ring
+                        && junctions[i].from.led == state.led) {
                         // Jump!
-                        state.position.ring = junctions[i].to.ring;
-                        state.position.led = junctions[i].to.led;
-                        state.direction = !state.direction;
+                        state.ring = junctions[i].to.ring;
+                        state.led = junctions[i].to.led;
+                        state.isClockwise = !state.isClockwise;
                         break;
                     }
                 }
                 
-                if (state.direction) {
-                    state.position.led++;
-                    if (state.position.led > 15) {
-                        state.position.led = 0;
+                if (state.isClockwise) {
+                    state.led++;
+                    if (state.led > 15) {
+                        state.led = 0;
                     }
                 }
                 else {
-                    state.position.led--;
-                    if (state.position.led < 0) {
-                        state.position.led = 15;
+                    state.led--;
+                    if (state.led < 0) {
+                        state.led = 15;
                     }
                 }
                 
-                rings.setLed(state.position.ring, state.position.led, true);
+                rings.setLed(state.ring, state.led, true);
             }
         };
         
